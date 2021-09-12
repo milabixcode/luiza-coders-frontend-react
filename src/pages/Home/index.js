@@ -12,7 +12,7 @@ function Home({ amount, addToCartRequest }) {
   const [products, setProducts] = useState([]);
 
   const fetchData = async () => {
-    const result = await api.get("/products");
+    const result = await api.get("/product");
 
     const data = result.data.map(product => ({
       ...product,
@@ -33,15 +33,15 @@ function Home({ amount, addToCartRequest }) {
   return (
     <ProductList>
       {products.map(product => (
-        <Product key={product.id}>
-          <strong>{product.title}</strong>
-          <img src={product.image} alt={product.name} />
+        <Product key={product.productId}>
+          <strong>{product.productName}</strong>
+          <img src={product.imageUrl} alt={product.name} />
           <span>{product.formattedPrice}</span>
 
-          <button type='button' onClick={() => handleAddProduct(product.id)}>
+          <button type='button' onClick={() => handleAddProduct(product.productId)}>
             <div>
               <MdAddShoppingCart size={16} color='#FFF' />
-              {amount[product.id] || 0}
+              {amount[product.productId] || 0}
             </div>
 
             <span>Adicionar ao carrinho</span>
@@ -54,7 +54,7 @@ function Home({ amount, addToCartRequest }) {
 
 const mapStateToProps = state => ({
   amount: state.cart.reduce((amount, product) => {
-    amount[product.id] = product.amount;
+    amount[product.productId] = product.amount;
 
     return amount;
   }, {}),

@@ -22,7 +22,7 @@ function Cart({ products, total, removeFromCart, updateAmountRequest }) {
   const [ stores, setStores ] = useState([])
 
   useEffect(() => {
-    api.get('store').then(
+    api.get('/store').then(
       response => setStores(response.data)
     )
   }, [])
@@ -37,15 +37,15 @@ function Cart({ products, total, removeFromCart, updateAmountRequest }) {
     });
 
     if (choice) {
-      removeFromCart(product.id);
+      removeFromCart(product.productId);
     }
   };
 
   const incrementProduct = product =>
-    updateAmountRequest(product.id, product.amount + 1);
+    updateAmountRequest(product.productId, product.amount + 1);
 
   const decrementProduct = product =>
-    updateAmountRequest(product.id, product.amount - 1);
+    updateAmountRequest(product.productId, product.amount - 1);
   return (
     <Container>
       <TableProducts>
@@ -61,14 +61,14 @@ function Cart({ products, total, removeFromCart, updateAmountRequest }) {
 
         <tbody>
           {products.map(product => (
-            <tr key={product.id}>
+            <tr key={product.productId}>
               <td>
                 <div className='image'>
-                  <img src={product.image} alt={product.title} />
+                  <img src={product.imageUrl} alt={product.productName} />
                 </div>
               </td>
               <td>
-                <strong>{product.title}</strong>
+                <strong>{product.productName}</strong>
                 <strong>{product.formattedPrice}</strong>
               </td>
               <td>
@@ -110,7 +110,7 @@ function Cart({ products, total, removeFromCart, updateAmountRequest }) {
         </div>
         <select name="select">
           { stores.map( item => (
-            <option key={item.id} value={item.name}>{item.name} | {item.city}</option>
+            <option key={item.ID} value={item.storeName}>{item.storeName}</option>
           )) }
         </select>
         <div>

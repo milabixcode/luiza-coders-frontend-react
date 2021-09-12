@@ -13,28 +13,29 @@ function* addToCart({ productId }) {
   // select manipula os states presentes nos reducers...
   // possui uma função que tem acesso a todos os states
   const productExists = yield select(state =>
-    state.cart.find(product => product.id === productId)
+    state.cart.find(product => product.productId === productId)
   );
 
-  const stock = yield call(api.get, `/stock/${productId}`);
+  // const stock = yield call(api.get, `/stock/${productId}`);
 
-  const stockAmount = stock.data.amount;
+  // const stockAmount = stock.data.amount;
   const currentAmount = productExists ? productExists.amount : 0;
 
   const amount = currentAmount + 1;
 
-  if (amount > stockAmount) {
-    toast.error("Quantidade solicitada fora de estoque");
-    return;
-  }
+  // if (amount > stockAmount) {
+  //   toast.error("Quantidade solicitada fora de estoque");
+  //   return;
+  // }
 
   if (productExists) {
     yield put(updateAmountSuccess(productId, amount));
   } else {
     // faz operações com promises a partir do call
     // ele quem manipula chamadas a partir dos generators
-    const response = yield call(api.get, `/products/${productId}`);
+    const response = yield call(api.get, `/product/${productId}`);
 
+    console.log("produto selecionado para adicao no carrinho ", response)
     // monta com dados necessários no componente de carrinhos
     const data = {
       ...response.data,

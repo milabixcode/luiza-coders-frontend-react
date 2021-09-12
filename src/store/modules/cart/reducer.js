@@ -5,13 +5,14 @@ export default function cart(state = [], action) {
     case "@cart/ADD_SUCCESS":
       return produce(state, draft => {
         const { product } = action;
+        console.log("Reducer de add success com produto : ", product)
         draft.push(product);
       });
 
     case "@cart/REMOVE":
       return produce(state, draft => {
         const productIndex = draft.findIndex(
-          product => product.id === action.productId
+          product => product.productId === action.productId
         );
 
         if (productIndex >= 0) {
@@ -22,7 +23,7 @@ export default function cart(state = [], action) {
     case "@cart/UPDATE_AMOUNT_SUCCESS": {
       return produce(state, draft => {
         const productIndex = draft.findIndex(
-          product => product.id === action.productId
+          product => product.productId === action.productId
         );
 
         if (productIndex >= 0) {
