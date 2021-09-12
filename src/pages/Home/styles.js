@@ -33,6 +33,7 @@ export const Product = styled.li`
     line-height: 20px;
     color: #333;
     margin-top: 5px;
+    margin-bottom: 10px;
   }
 
   > span {
