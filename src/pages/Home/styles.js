@@ -11,6 +11,7 @@ export const ProductList = styled.ul`
 
 export const Product = styled.li`
   display: flex;
+  max-width: 350px;
   flex-direction: column;
   border-radius: 10px;
   background: #fff;
@@ -23,6 +24,7 @@ export const Product = styled.li`
 
   img {
     max-width: 200px;
+    max-height: 200px;
     align-self: center;
   }
 
