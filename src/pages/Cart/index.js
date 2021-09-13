@@ -147,7 +147,7 @@ function Cart({ products, total, removeFromCart, updateAmountRequest }) {
             </td>
 
             <td></td>           
-            <td>Encomenda de até 100Kg</td>
+            <td>Encomenda de 10kg até 100Kg</td>
             <td><h5>R$300,00</h5></td>
             <td><input type="checkbox"></input></td>
 
@@ -159,7 +159,7 @@ function Cart({ products, total, removeFromCart, updateAmountRequest }) {
             </td>
 
             <td></td>           
-            <td>Encomendas acima de 200Kg</td>
+            <td>Encomendas acima de 100Kg</td>
             <td><h5>R$400,00</h5></td>
             <td><input type="checkbox"></input></td>
 
