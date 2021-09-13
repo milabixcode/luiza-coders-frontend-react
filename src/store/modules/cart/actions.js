@@ -25,9 +25,9 @@ export function removeFromCart(productId) {
   };
 }
 
-export function updateAmountRequest(productId, amount) {
+export function updateAmountRequest( productId, amount) {
   return {
-    type: "@cart/UPDATE_AMOUNT_REQUEST",
+    type: "@cart/UPDATE_AMOUNT_SUCCESS", //aqui estava como Request, impedido o incremento no cart
     productId,
     amount,
   };

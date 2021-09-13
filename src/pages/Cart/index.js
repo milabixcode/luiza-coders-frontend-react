@@ -41,10 +41,10 @@ function Cart({ products, total, removeFromCart, updateAmountRequest }) {
     }
   };
 
-  const incrementProduct = product =>
+  const incrementProduct = async  product => 
     updateAmountRequest(product.productId, product.amount + 1);
 
-  const decrementProduct = product =>
+  const decrementProduct = async  product =>
     updateAmountRequest(product.productId, product.amount - 1);
   return (
     <Container>
@@ -73,16 +73,12 @@ function Cart({ products, total, removeFromCart, updateAmountRequest }) {
               </td>
               <td>
                 <div>
-                  <button
-                    type='button'
-                    onClick={() => decrementProduct(product)}
-                  >
+                  <button type='button' onClick={() => decrementProduct(product)}>
                     <MdRemoveCircleOutline size={20} color='#5960c1' />
                   </button>
-                  <input type='number' readOnly value={product.amount} />
+                  <input type='number' readonly value={product.amount} />
                   <button
-                    type='button'
-                    onClick={() => incrementProduct(product)}
+                    type='button' onClick={() => incrementProduct(product)}
                   >
                     <MdAddCircleOutline size={20} color='#5960c1' />
                   </button>
