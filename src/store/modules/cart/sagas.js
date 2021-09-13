@@ -23,6 +23,8 @@ function* addToCart({ productId }) {
 
   const amount = currentAmount + 1;
 
+  const clientId = 17
+
   // if (amount > stockAmount) {
   //   toast.error("Quantidade solicitada fora de estoque");
   //   return;
@@ -48,6 +50,11 @@ function* addToCart({ productId }) {
     yield put(addToCartSuccess(data));
 
     toast.info("Produto adicionado ao carrinho");
+    api.put("/order/item", {
+      client: clientId,
+      product: response.data.productId,
+      quantity: 1
+    })
     history.push("/cart");
   }
 }
