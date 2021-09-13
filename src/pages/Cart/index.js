@@ -135,7 +135,7 @@ function Cart({ products, total, removeFromCart, updateAmountRequest }) {
             <FaCarSide size={40} color='#5960c1' />
             </td>
             <td></td>           
-            <td width="80%">Encomenda de até 100Kg</td>
+            <td width="80%">Encomenda de até 10Kg</td>
             <td><h5>R$200,00</h5></td>
             <td><input type="checkbox"></input></td>
 
