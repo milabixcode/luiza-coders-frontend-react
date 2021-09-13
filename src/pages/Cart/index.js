@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import swal from "sweetalert";
+import { FaBox, FaCar, FaCarSide, FaCheck, FaSave, FaTruck, FaTruckMoving, IconName } from "react-icons/fa";
+
 import {
   MdRemoveCircleOutline,
   MdAddCircleOutline,
@@ -114,6 +116,57 @@ function Cart({ products, total, removeFromCart, updateAmountRequest }) {
           <img src={LuizaCoders} alt="nome do grupo"/>
         </div>
       </div>
+
+      <div>
+        <div className="op">
+          <table>
+            <tr>
+              <td><FaBox size={38}/></td>
+              <td><h5>Opções para antecipar sua entrega:</h5></td>
+            </tr>
+
+          </table>
+        
+        </div>
+        <table>
+
+          <tr>
+            <td>
+            <FaCarSide size={40} color='#5960c1' />
+            </td>
+            <td></td>           
+            <td width="80%">Encomenda de até 10Kg</td>
+            <td><h5>R$200,00</h5></td>
+            <td><input type="checkbox"></input></td>
+
+          </tr>
+
+          <tr>
+            <td>
+            <FaTruck size={40} color='#5960c1' />
+            </td>
+
+            <td></td>           
+            <td>Encomenda de 10kg até 100Kg</td>
+            <td><h5>R$300,00</h5></td>
+            <td><input type="checkbox"></input></td>
+
+          </tr>
+
+          <tr>
+            <td>
+            <FaTruckMoving size={40} color='#5960c1' />
+            </td>
+
+            <td></td>           
+            <td>Encomendas acima de 100Kg</td>
+            <td><h5>R$400,00</h5></td>
+            <td><input type="checkbox"></input></td>
+
+          </tr>
+        </table>
+      </div>
+
       <div className="checkout">
         <button type='button'>Finalizar pedido</button>
         <Total>

@@ -3,6 +3,14 @@ import styled from "styled-components";
 import { darken } from "polished";
 
 export const Container = styled.div`
+
+  
+    @import url('https://kit.fontawesome.com/249b1afbd0.js');
+  
+  .op{
+    margin-bottom: 30px;
+  }
+
   padding: 30px;
   background: #fff;
   border-radius: 4px;
