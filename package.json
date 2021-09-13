@@ -12,7 +12,7 @@
     "polished": "^3.5.1",
     "react": "^18.0.0-alpha-1314299c7-20210901",
     "react-dom": "^16.13.1",
-    "react-icons": "^3.9.0",
+    "react-icons": "^3.11.0",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "^4.0.3",
