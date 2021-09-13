@@ -69,5 +69,6 @@ function* updateAmount({ productId, amount }) {
 // ex: usuário clica varias vezes em adicionar ao carrinho em intervalo curto de tempo
 export default all([
   takeLatest("@cart/ADD_REQUEST", addToCart),
-  takeLatest("@cart/UPDATE_AMOUNT_REQUEST", updateAmount),
+  // habilitado trava os botões de quantidades no carrinho, mesmo que funcione na home
+  //takeLatest("@cart/UPDATE_AMOUNT_REQUEST", updateAmount), 
 ]);
